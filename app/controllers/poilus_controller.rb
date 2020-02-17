@@ -9,6 +9,7 @@ class PoilusController < ApplicationController
   end
 
   def show
+    @poilu = Poilu.find(params[:id])
   end
 
   def edit

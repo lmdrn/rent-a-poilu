@@ -1,2 +1,4 @@
-<h1>Poilus#show</h1>
-<p>Find me in app/views/poilus/show.html.erb</p>
+<h1><%= @poilu.name %></h1>
+<p><%= @poilu.description %></p>
+<p>Ce poilu se trouve à <%= @poilu.location %></p>
+<p>Ce poilu apartient à <%= @poilu.user.email %></p>
