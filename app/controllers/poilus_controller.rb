@@ -1,5 +1,6 @@
 class PoilusController < ApplicationController
   def index
+    @poilus = Poilu.all
   end
 
   def new
@@ -18,6 +19,7 @@ class PoilusController < ApplicationController
   end
 
   def show
+    @poilu = Poilu.find(params[:id])
   end
 
   def edit
