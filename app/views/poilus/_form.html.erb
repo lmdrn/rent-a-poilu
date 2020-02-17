@@ -1,0 +1,16 @@
+<%= simple_form_for(@poilu) do |f| %>
+  <% if @poilu.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% @poilu.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+  <% end %>
+      </ul>
+    </div>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :location, collection: Poilu::LOCATIONS%>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit "add a poilu", class: "btn btn-primary" %>
+<% end %>
