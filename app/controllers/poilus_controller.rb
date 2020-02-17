@@ -1,5 +1,6 @@
 class PoilusController < ApplicationController
   def index
+    @poilus = Poilu.all
   end
 
   def new
