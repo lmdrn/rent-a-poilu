@@ -1,2 +1,9 @@
-<h1>Poilus#index</h1>
-<p>Find me in app/views/poilus/index.html.erb</p>
+<div class="container">
+  <div class="cards">
+    <% @poilus.each do |poilu| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://my-test-11.slatic.net/p/a74132fd5a6c38128c1edb37dd4e266b.jpg_720x720q80.jpg_.webp')">
+      <%= link_to poilu.name, poilu_path(poilu) %>
+    </div>
+    <% end %>
+  </div>
+</div>
