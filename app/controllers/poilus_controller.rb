@@ -1,4 +1,5 @@
 class PoilusController < ApplicationController
+  before_action :set_poilu, only: [:create, :show, :edit, :update]
   def index
     @poilus = Poilu.all
   end
@@ -8,7 +9,6 @@ class PoilusController < ApplicationController
   end
 
   def create
-    @user = User.find(current_user.id)
     @poilu = Poilu.new(poilu_params)
     @poilu.user = @user
     if @poilu.save
@@ -19,19 +19,25 @@ class PoilusController < ApplicationController
   end
 
   def show
-    @poilu = Poilu.find(params[:id])
   end
 
   def edit
   end
 
   def update
+    @poilu.update(poilu_params)
+
+    redirect_to poilu_path(@poilu)
   end
 
   def destroy
   end
 
   private
+
+  def set_poilu
+    @poilu = Poilu.find(params[:id])
+  end
 
   def poilu_params
     params.require(:poilu).permit(:name, :description, :location, :photo)
