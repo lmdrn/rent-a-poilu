@@ -1,22 +1,22 @@
-<h1><%= @poilu.name %></h1>
-<p><%= @poilu.description %></p>
-<p>Ce poilu se trouve à <%= @poilu.location %></p>
-<p>Ce poilu apartient à <%= @poilu.user.email %></p>
+<div class="container">
+  <h2 class="title2"><%= @poilu.name %></h2>
+  <p><%= @poilu.description %></p>
+  <p>Ce poilu se trouve à <%= @poilu.location %></p>
+  <p>Ce poilu est mis en location par <%= @poilu.user.email %></p>
 
-<% @poilu.bookings.each do |booking| %>
-  <p>Booked from: <%= booking.start_date %>, until <%= booking.end_date %> by <%= booking.user.email %></p>
-<% end %>
-
-<%= link_to poilu_path(@poilu), method: :delete, data: { confirm: "Are you sure?" } do %>
-<p><i class="fas fa-trash-alt"></i>Supprimer</p>
-<% end %>
-<%= link_to edit_poilu_path do%>
-<p><i class="fas fa-edit"></i>Éditer</p>
-<% end %>
-<%= link_to poilus_path do%>
-<p><i class="fas fa-backspace"></i>Retour</p>
-<% end %>
-<% if @poilu.photo.attached? %>
-     <div><%= cl_image_tag @poilu.photo.key, height: 300, width: 400, crop: :fill %></div>
+  <% @poilu.bookings.each do |booking| %>
+    <p>Booked from: <%= booking.start_date %>, until <%= booking.end_date %> by <%= booking.user.email %></p>
   <% end %>
-  <%= link_to "Book it", new_poilu_booking_path(@poilu), class: "btn btn-primary" %>
+
+  <p><%= link_to '<i class="fas fa-trash-alt"></i> Supprimer'.html_safe, poilu_path(@poilu), method: :delete, data: { confirm: "Are you sure?" }, class: 'link'  %> </p>
+  <p><%= link_to '<i class="fas fa-edit"></i> Éditer'.html_safe, edit_poilu_path, class: 'link'  %></p>
+  <p><%= link_to '<i class="fas fa-backspace"></i> Retour'.html_safe, poilus_path, class: 'link' %></p>
+
+
+
+  <% if @poilu.photo.attached? %>
+    <div><%= cl_image_tag @poilu.photo.key, height: 300, width: 400, crop: :fill %></div>
+  <% end %>
+
+  <div><%= link_to "Book it", new_poilu_booking_path(@poilu), class: "btn btn-ghost" %></div>
+</div>
