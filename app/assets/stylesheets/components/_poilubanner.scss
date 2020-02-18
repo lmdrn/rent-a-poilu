@@ -1,19 +1,32 @@
-.poilubanner {
-  background-size: cover;
-  background-position: center;
-  padding: 300px;
+body,
+div,
+h1,
+h2,
+p {
+  margin: 0;
+  padding: 0;
 }
 
-.poilubanner h1 {
+.banner {
+  background-image: url('banner.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 300px 0;
+}
+
+.banner h1 {
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
+  font-size: 50px;
   font-weight: bold;
+  text-align: center;
+
 }
 
-.poilubanner p {
-  font-size: 20px;
+.banner p {
+  font-size: 30px;
+  text-align: center;
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
