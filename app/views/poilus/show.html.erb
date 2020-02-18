@@ -2,10 +2,19 @@
 <p><%= @poilu.description %></p>
 <p>Ce poilu se trouve à <%= @poilu.location %></p>
 
+
 <% if policy(@poilu).edit? %>
   <p>Ce poilu est à moi</p>
 <% else %>
   <p>Ce poilu apartient à <%= @poilu.user.email %></p>
+<% end %>
+
+<% @poilu.bookings.each do |booking| %>
+  <p>Booked from: <%= booking.start_date %>, until <%= booking.end_date %> by <%= booking.user.email %></p>
+<% end %>
+
+<%= link_to poilu_path(@poilu), method: :delete, data: { confirm: "Are you sure?" } do %>
+<p><i class="fas fa-trash-alt"></i>Supprimer</p>
 <% end %>
 
 
