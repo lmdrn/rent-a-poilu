@@ -29,6 +29,8 @@ class PoilusController < ApplicationController
   end
 
   def destroy
+    @poilu.destroy
+    redirect_to poilus_path
   end
 
   private
