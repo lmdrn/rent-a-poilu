@@ -10,7 +10,7 @@
 <%= link_to poilus_path do%>
 <p><i class="fas fa-backspace"></i> Go Back</p>
 <% end %>
-
+<%= link_to 'edit –>', edit_poilu_path %>
 <% if @poilu.photo.attached? %>
      <div><%= cl_image_tag @poilu.photo.key, height: 300, width: 400, crop: :fill %></div>
   <% end %>
