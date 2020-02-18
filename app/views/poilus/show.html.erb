@@ -13,11 +13,6 @@
   <p>Booked from: <%= booking.start_date %>, until <%= booking.end_date %> by <%= booking.user.email %></p>
 <% end %>
 
-<%= link_to poilu_path(@poilu), method: :delete, data: { confirm: "Are you sure?" } do %>
-<p><i class="fas fa-trash-alt"></i>Supprimer</p>
-<% end %>
-
-
 <% if policy(@poilu).destroy? %>
   <%= link_to poilu_path(@poilu), method: :delete, data: { confirm: "Are you sure?" } do %>
     <p><i class="fas fa-trash-alt"></i>Supprimer</p>
