@@ -1,5 +1,5 @@
 class PoilusController < ApplicationController
-  before_action :set_poilu, only: [:create, :show, :edit, :update]
+  before_action :set_poilu, only: [:create, :show, :edit, :update, :destroy]
   def index
     @poilus = Poilu.all
   end
