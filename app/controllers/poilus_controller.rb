@@ -1,5 +1,5 @@
 class PoilusController < ApplicationController
-  before_action :set_poilu, only: [:create, :show, :edit, :update, :destroy]
+  before_action :set_poilu, only: [:show, :edit, :update, :destroy]
   def index
     @poilus = Poilu.all
   end
@@ -9,6 +9,7 @@ class PoilusController < ApplicationController
   end
 
   def create
+    @user = User.find(current_user.id)
     @poilu = Poilu.new(poilu_params)
     @poilu.user = @user
     if @poilu.save

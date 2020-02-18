@@ -4,14 +4,15 @@
 <p>Ce poilu apartient à <%= @poilu.user.email %></p>
 
 <%= link_to poilu_path(@poilu), method: :delete, data: { confirm: "Are you sure?" } do %>
-<p><i class="fas fa-trash-alt"></i>Delete</p>
+<p><i class="fas fa-trash-alt"></i>Supprimer</p>
+<% end %>
+<%= link_to edit_poilu_path do%>
+<p><i class="fas fa-edit"></i>Éditer</p>
 <% end %>
 <br>
+
 <%= link_to poilus_path do%>
-<p><i class="fas fa-backspace"></i> Edit</p>
-<% end %>
-<%= link_to poilus_path do%>
-<p><i class="fas fa-backspace"></i> Go Back</p>
+<p><i class="fas fa-backspace"></i>Retour</p>
 <% end %>
 <% if @poilu.photo.attached? %>
      <div><%= cl_image_tag @poilu.photo.key, height: 300, width: 400, crop: :fill %></div>
