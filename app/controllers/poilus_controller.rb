@@ -29,7 +29,6 @@ class PoilusController < ApplicationController
   end
 
   def destroy
-    @poilu = Poilu.find(params[:id])
     @poilu.destroy
     redirect_to poilus_path
   end
