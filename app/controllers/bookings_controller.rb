@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
     @poilu = Poilu.find(params[:poilu_id])
     @booking = Booking.new
     @booking.user = current_user
+    authorize @booking
   end
 
   # def create
@@ -13,7 +14,7 @@ class BookingsController < ApplicationController
     @poilu = Poilu.find(params[:poilu_id])
     @booking.poilu = @poilu
     @booking.user = current_user
-
+    authorize @booking
     if @booking.save
       redirect_to pay_path(@poilu, @booking)
     else
@@ -24,12 +25,14 @@ class BookingsController < ApplicationController
   def pay
     @booking = Booking.find(params[:booking_id])
     @poilu = Poilu.find(params[:poilu_id])
+    authorize @booking
   end
 
   def update
     @booking = Booking.find(params[:id])
     @booking.update(booking_params)
     redirect_to poilus_path
+    authorize @booking
   end
 
   private
