@@ -2,16 +2,27 @@
   <h2 class="title2"><%= @poilu.name %></h2>
   <p><%= @poilu.description %></p>
   <p>Ce poilu se trouve à <%= @poilu.location %></p>
-  <p>Ce poilu est mis en location par <%= @poilu.user.email %></p>
+
+
+  <% if policy(@poilu).edit? %>
+    <p>Ce poilu est à moi</p>
+  <% else %>
+    <p>Ce poilu est mis en location par <%= @poilu.user.email %></p>
+  <% end %>
 
   <% @poilu.bookings.each do |booking| %>
     <p>Booked from: <%= booking.start_date %>, until <%= booking.end_date %> by <%= booking.user.email %></p>
   <% end %>
 
-  <p><%= link_to '<i class="fas fa-trash-alt"></i> Supprimer'.html_safe, poilu_path(@poilu), method: :delete, data: { confirm: "Are you sure?" }, class: 'link'  %> </p>
-  <p><%= link_to '<i class="fas fa-edit"></i> Éditer'.html_safe, edit_poilu_path, class: 'link'  %></p>
-  <p><%= link_to '<i class="fas fa-backspace"></i> Retour'.html_safe, poilus_path, class: 'link' %></p>
+  <% if policy(@poilu).destroy? %>
+      <p><%= link_to '<i class="fas fa-trash-alt"></i> Supprimer'.html_safe, poilu_path(@poilu), method: :delete, data: { confirm: "Are you sure?" }, class: 'link'  %> </p>
+  <% end %>
 
+  <% if policy(@poilu).edit? %>
+    <p><%= link_to '<i class="fas fa-edit"></i> Éditer'.html_safe, edit_poilu_path, class: 'link'  %></p>
+  <% end %>
+
+  <p><%= link_to '<i class="fas fa-backspace"></i> Retour'.html_safe, poilus_path, class: 'link' %></p>
 
 
   <% if @poilu.photo.attached? %>
