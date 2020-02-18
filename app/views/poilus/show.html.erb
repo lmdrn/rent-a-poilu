@@ -7,3 +7,4 @@
 <% if @poilu.photo.attached? %>
      <div><%= cl_image_tag @poilu.photo.key, height: 300, width: 400, crop: :fill %></div>
   <% end %>
+  <%= link_to "Book it", new_poilu_booking_path(@poilu), class: "btn btn-primary" %>
