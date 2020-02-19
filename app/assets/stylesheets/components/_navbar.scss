@@ -1,16 +1,49 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 500;
+  width: 100%;
 }
 
+.avatar {
+  width: 40px;
+  height: 40px;
+}
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.nav-item {
+  display: flex;
 }
 
+.navbar-lewagon .navbar-brand img {
+  width: 150px;
+}
+
+.dropdown-item {
+  font-family: upgrade, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-right: 20px;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.dropdown-item a {
+  padding: 0;
+
+}
+
+.dropdown-item:hover {
+  background: none;
+  color: #7001FF;
+}
+
+.dropdown-menu {
+  background-color: white;
+  padding: 10px;
+  border-radius: 20px;
+  border: white;
+}
