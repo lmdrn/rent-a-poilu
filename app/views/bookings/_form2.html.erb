@@ -4,7 +4,11 @@
     <p>Poilu choisi: <%= @poilu.name %></p>
     <p>Loué du: <%= @booking.start_date %> au <%= @booking.end_date %></p>
     <%= f.hidden_field :paid, value: true %>
-    <div><%= cl_image_tag @poilu.photo.key, height: 300, width: 400, crop: :fill %></div>
+
+    <% if @poilu.photo.attached? %>
+     <div><%= cl_image_tag @poilu.photo.key, height: 300, width: 400, crop: :fill %></div>
+    <% end %>
+
     <%= f.submit "Payer", class: "btn-ghost" %>
   <% end %>
 </div>
