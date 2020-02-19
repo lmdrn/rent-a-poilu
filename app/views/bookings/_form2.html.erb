@@ -2,12 +2,12 @@
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-sm-offset-4">
     <%= simple_form_for [@poilu, @booking], :method => :patch do |f| %>
-      <h4>Confirm your booking</h4>
-      <p>Poilu to rent: <%= @poilu.name %></p>
-      <p>First day: <%= @booking.start_date %></p>
-      <p>Last day: <%= @booking.end_date %></p>
+      <h4>Confirmez votre réservation</h4>
+      <p>Poilu choisi: <%= @poilu.name %></p>
+      <p>Loué du: <%= @booking.start_date %> au <%= @booking.end_date %></p>
       <%= f.hidden_field :paid, value: true %>
-      <%= f.submit "Pay" %>
+      <div><%= cl_image_tag @poilu.photo.key, height: 300, width: 400, crop: :fill %></div>
+      <%= f.submit "Payer" %>
     <% end %>
     </div>
   </div>

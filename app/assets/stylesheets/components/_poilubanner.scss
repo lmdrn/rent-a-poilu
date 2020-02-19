@@ -8,26 +8,33 @@ p {
 }
 
 .banner {
-  background-image: url('banner.jpg');
+  background: image-url('banner.jpeg');
   background-size: cover;
   background-position: center;
   padding: 300px 0;
+  text-align: center;
 }
 
 .banner h1 {
-  margin: 0;
+  margin: 0 auto;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 50px;
+  font-size: 70px;
   font-weight: bold;
-  text-align: center;
-
+  width: 670px;
 }
 
 .banner p {
   font-size: 30px;
+  opacity: .9;
   text-align: center;
   color: white;
-  opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+h2 {
+  text-align: center;
+  margin: 30px;
+  font-family: 'Montserrat', sans-serif;
+  color: black;
 }
