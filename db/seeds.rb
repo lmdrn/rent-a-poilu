@@ -7,6 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Poilu.destroy_all
 
-Poilu.create!(name: 'chat', description: 'chat poilu tout dou', location: 'Lausanne', user_id: 1)
-Poilu.create!(name: 'pantouffles', description: 'pantouffles poilues roses', location: 'Berne', user_id: 1)
-Poilu.create!(name: 'Yeti', description: 'monstre des montagnes blanc', location: 'Verbier', user_id: 1)
+Poilu.create!(name: 'Pêche poilue', description: 'Un petit fruit tout doux pour adoucir vos papilles', location: 'Lausanne', user_id: 1)
+Poilu.create!(name: 'Chewbacca', description: 'Vous apportera fidelité en amitié. Capacité conversationnelle diffcile.', location: 'Renens', user_id: 1)
+Poilu.create!(name: 'Minou', description: 'Boule de poil arrogante mais attachante', location: 'Lausanne', user_id: 1)
+Poilu.create!(name: 'Fizzgig', description: 'Totalement rond. Grande gueule', location: 'Fribourg', user_id: 1)
+Poilu.create!(name: 'Balai', description: 'Petits cheveux pratiques pour nettoyer', location: 'Neuchâtel', user_id: 1)
+Poilu.create!(name: 'Moquette', description: "Nid à bactéries mais on s'en fout ça rend bien dans le salon", location: 'Bern', user_id: 1)
+Poilu.create!(name: 'Perruque', description: 'Pour impressionner tes beaux-parents à Noël', location: 'Zürich', user_id: 1)
+Poilu.create!(name: 'Leggings à poils', description: 'Pour rentrer tranquille chez soi le soir', location: 'Genève', user_id: 1)
+Poilu.create!(name: 'Torse fourni', description: 'Pour rendre les câlins plus confortables', location: 'Berne', user_id: 1)
+Poilu.create!(name: 'Yéti', description: 'Monstre des montagnes blanc. Caractère très sympathique. Préfère les températures fraîches', location: 'Bern', user_id: 1)
