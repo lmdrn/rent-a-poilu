@@ -11,7 +11,7 @@
   <% end %>
 
   <% @poilu.bookings.each do |booking| %>
-    <p>Booked from: <%= booking.start_date %>, until <%= booking.end_date %> by <%= booking.user.email %></p>
+    <p>Loué du: <%= booking.start_date %>, au <%= booking.end_date %> by <%= booking.user.email %></p>
   <% end %>
 
   <% if policy(@poilu).destroy? %>
@@ -22,12 +22,12 @@
     <p><%= link_to '<i class="fas fa-edit"></i> Éditer'.html_safe, edit_poilu_path, class: 'link'  %></p>
   <% end %>
 
-  <p><%= link_to '<i class="fas fa-backspace"></i> Retour'.html_safe, poilus_path, class: 'link' %></p>
+  <p><%= link_to "<i class='fas fa-backspace'></i> Page d'accueil".html_safe, poilus_path, class: 'link' %></p>
 
 
   <% if @poilu.photo.attached? %>
     <div><%= cl_image_tag @poilu.photo.key, height: 300, width: 400, crop: :fill %></div>
   <% end %>
 
-  <div><%= link_to "Book it", new_poilu_booking_path(@poilu), class: "btn btn-ghost" %></div>
+  <div><%= link_to "Je le veux", new_poilu_booking_path(@poilu), class: "btn btn-ghost" %></div>
 </div>
