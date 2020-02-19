@@ -1,0 +1,71 @@
+.showcontainer {
+  display: flex;
+}
+
+.show-img {
+  flex-grow: 1;
+  height: 90vh;
+  display: flex;
+  align-items: flex-end;
+}
+
+.show-img p {
+  padding: 10px 20px;
+  background-color: #7001FF;
+  position: sticky;
+  bottom: 0;
+}
+
+.show-img a {
+  color: white;
+}
+
+.show-img a:hover {
+  text-decoration: none;
+  color: pink;
+}
+
+
+.description {
+  flex-grow: 1;
+  padding: 50px;
+  max-width: 500px;
+}
+
+.description h2 {
+  font-family: sutro-deluxe-inline, sans-serif;
+  font-weight: 400;
+  font-size: 3em;
+  font-style: normal;
+}
+
+.legendes {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.text-medium {
+  font-family: upgrade, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.9em;
+}
+
+.show-infos {
+  font-family: upgrade-lights,sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+
+.boutton-show {
+  margin: 30px 0;
+  display: block;
+}
+
+.back:hover {
+  text-decoration: none;
+  color: purple;
+  letter-spacing: .1em;
+}
