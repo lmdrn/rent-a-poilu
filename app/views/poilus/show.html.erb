@@ -1,5 +1,5 @@
 <div class="showcontainer">
-  <div class="show-img" style="background-image: url(<%= cl_image_path @poilu.photo.key %>);">
+<div class="show-img" style="background-image: url(<%= @poilu.photo.attached? ? cl_image_path(@poilu.photo.key) : image_path("default.jpg") %>); background-size: cover;">
       <% if policy(@poilu).destroy? %>
           <p><%= link_to '<i class="fas fa-trash-alt"></i> Supprimer'.html_safe, poilu_path(@poilu), method: :delete, data: { confirm: "Are you sure?" }, class: 'link'  %> </p>
       <% end %>
