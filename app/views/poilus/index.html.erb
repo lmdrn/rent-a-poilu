@@ -1,17 +1,25 @@
 <div class="banner">
   <div class="container">
     <h1>Trouve ton <strong>poilu</strong> !</h1>
-    <p>Un site poilant.</p>
+    <p>Un site vraiment super poilant.</p>
   </div>
 </div>
 
+<h2>Choisis ton poilu !</h2>
 
 <div class="container">
   <div class="cards">
     <% @poilus.each do |poilu| %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(poilu.photo.key, height: 300, width: 400, crop: :fill) if poilu.photo.attached? == true %> ')">
+    <div
+    class="card-category"
+    style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+    <%= poilu.photo.attached? == true ? "url('#{cl_image_path(poilu.photo.key, height: 300, width: 400, crop: :fill)}')" : "url(#{image_path("default.jpg")})" %>"
+    >
       <%= link_to poilu.name, poilu_path(poilu) %>
     </div>
     <% end %>
   </div>
 </div>
+
+
+
