@@ -1,17 +1,20 @@
-<%= simple_form_for(@poilu) do |f| %>
-  <% if @poilu.errors.any? %>
-    <div class="errors-container">
-      <ul>
+<div class="form_container">
+  <h2>Ajouter un poilu</h2>
+  <%= simple_form_for(@poilu) do |f| %>
+    <% if @poilu.errors.any? %>
+      <div class="errors-container">
+        <ul>
         <% @poilu.errors.full_messages.each do |message| %>
           <li><%= message %></li>
+        </ul>
         <% end %>
+      </div>
+    <% end %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= f.input :name, label: "Nom du poilu"%>
+    <%= f.input :description, label: "Description du poilu" %>
+    <%= f.input :location, collection: Poilu::LOCATIONS, label: "Emplacement du poilu" %>
+    <%= f.input :photo, as: :file,label: "Photo du poilu" %>
+    <%= f.submit "Editer le poilu", class: "btn btn-ghost" %>
   <% end %>
-      </ul>
-    </div>
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :location, collection: Poilu::LOCATIONS%>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit "modifier le poilu", class: "btn btn-primary" %>
-<% end %>
+</div>
