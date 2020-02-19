@@ -21,14 +21,14 @@
 
 
 .card-category a {
-    font-family: 'Montserrat', sans-serif;
+    font-family: upgrade-lights,sans-serif;
     text-decoration: none;
     color: white;
-    border-top: 2px solid white;
+    border-top: 1px solid white;
     padding-right: 30px;
     margin: 0;
     &:hover {
-      color: #7550FC;
-      border-top: 2px solid #7550FC;
+      color: rgb(190,190,190);
+      border-top: 1px solid rgb(190,190,190);
     }
   }

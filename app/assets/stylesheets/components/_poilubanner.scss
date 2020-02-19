@@ -8,7 +8,7 @@ p {
 }
 
 .banner {
-  background: image-url('banner.jpeg');
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), image-url('banner.jpeg');
   background-size: cover;
   background-position: center;
   padding: 300px 0;
@@ -21,20 +21,31 @@ p {
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 70px;
   font-weight: bold;
-  width: 670px;
+  font-family: sutro-deluxe-inline, sans-serif;
+  font-weight: 400;
+  font-size: 3em;
+  font-style: normal;
 }
 
 .banner p {
-  font-size: 30px;
-  opacity: .9;
+  font-family: upgrade-lights,sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 2.5em;
+  margin-bottom: 20px;
   text-align: center;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
-h2 {
-  text-align: center;
-  margin: 30px;
-  font-family: 'Montserrat', sans-serif;
+.subtitle h2 {
+  text-align: left;
+  margin-top: 30px;
+  margin-left: 200px;
+  text-transform: uppercase;
+  font-family: sutro-deluxe-inline, sans-serif;
+  font-weight: bolder;
   color: black;
+  border-bottom: 1px solid black;
+  font-weight: 600;
 }
