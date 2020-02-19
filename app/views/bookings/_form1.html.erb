@@ -1,21 +1,17 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-    <%= simple_form_for [@poilu, @booking] do |f| %>
-      <h4>Choisissez les dates de location</h4>
-      <% if @booking.errors.any? %>
-          <div class="errors-container">
-            <ul>
-              <% @booking.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-      <%= f.input :start_date, as: :date, html5: true, :label => "Du"%>
-      <%= f.input :end_date, as: :date, html5: true, :label => "Au"%>
-      <%= f.submit "Suivant" %>
-    <% end %>
-    </div>
-  </div>
+<div class="form-container">
+ <%= simple_form_for [@poilu, @booking] do |f| %>
+    <h2>Choisissez les dates de location</h2>
+    <% if @booking.errors.any? %>
+        <div class="errors-container">
+          <ul>
+            <% @booking.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    <%= f.input :start_date, as: :date, html5: true, :label => "Du"%>
+    <%= f.input :end_date, as: :date, html5: true, :label => "Au"%>
+    <%= f.submit "Suivant", class: "btn btn-ghost" %>
+  <% end %>
 </div>
