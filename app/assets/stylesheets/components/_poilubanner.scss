@@ -8,16 +8,17 @@ p {
 }
 
 .banner {
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), image-url('banner.jpeg');
+  background: image-url('banner.jpeg');
   background-size: cover;
   background-position: center;
   padding: 300px 0;
   text-align: center;
+  margin-bottom: 100px;
 }
 
 .banner h1 {
   margin: 0 auto;
-  color: white;
+  color: black;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 70px;
   font-weight: bold;
@@ -29,12 +30,12 @@ p {
 
 .banner p {
   font-family: upgrade-lights,sans-serif;
-  font-weight: 300;
+  font-weight: 700;
   font-style: normal;
-  font-size: 2.5em;
+  font-size: 1.5em;
   margin-bottom: 20px;
   text-align: center;
-  color: white;
+  color: black;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
