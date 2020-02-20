@@ -25,10 +25,25 @@
 
 
 <h3> Mes réservations:</h3>
-<% @user.bookings.each do |booking| %>
+<% @bookings.each do |booking| %>
   <p> <%= booking.poilu.name %> du <%= booking.start_date %> au <%= booking.end_date %></p>
+
+
+
+    <% if policy(booking).destroy? %>
+      <p><%= link_to '<i class="fas fa-trash-alt"></i> Supprimer'.html_safe, poilu_booking_path(booking.poilu, booking), method: :delete, data: { confirm: "Are you sure?" }, class: 'link'  %> </p>
+    <% end %>
+
+    <% if policy(booking).edit? %>
+      <p><%= link_to '<i class="fas fa-edit"></i> Éditer'.html_safe, edit_poilu_booking_path(booking.poilu, booking), class: 'link'  %></p>
+    <% end %>
+
+
+
+
   <% if booking.poilu.photo.attached?  %>
     <div> <%= cl_image_tag(booking.poilu.photo.key) %></div>
   <% end %>
 <% end %>
 
+<p><%= link_to '<i class="fas fa-chevron-left"></i> Retour'.html_safe, poilus_path, class: 'link back' %></p>
