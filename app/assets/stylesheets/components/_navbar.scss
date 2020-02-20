@@ -26,27 +26,27 @@
   width: 150px;
 }
 
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
 .dropdown-item {
-  font-family: upgrade, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  margin-right: 20px;
-  padding: 10px 0;
-  text-align: center;
+  font-family: 'Quicksand', "sans-serif";
+  color: #b677f3;
+  &:hover {
+  color: #f3b9eb;
+  border-radius: 10px;
+  }
 }
 
 .dropdown-item a {
   padding: 0;
-
-}
-
-.dropdown-item:hover {
-  background: none;
-  color: #7001FF;
 }
 
 .dropdown-menu {
   background-color: white;
+  margin-top: 10px;
   padding: 10px;
   border-radius: 20px;
   border: white;

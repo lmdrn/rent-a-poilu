@@ -23,6 +23,10 @@
                   label: "Confirmer mot de passe",
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
+      <%= f.input :photo,
+                  as: :file,
+                  label: "Photo de profil",
+                  required: true%>
     <div class="form-actions">
       <%= f.button :submit, "S'inscrire", class: "btn-ghost" %>
     </div>
