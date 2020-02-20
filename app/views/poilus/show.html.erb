@@ -18,17 +18,10 @@
       <% if policy(@poilu).edit? %>
         <p>Ce poilu m'appartient</p>
       <% else %>
-        <p>Ce poilu appartien à <%= @poilu.user.email %></p>
+        <p>Ce poilu appartien à <%= @poilu.user.username %></p>
       <% end %>
       <p>Description : <%= @poilu.description %></p>
       <div><%= link_to "Je le veux", new_poilu_booking_path(@poilu), class: "btn btn-ghost boutton-show" %></div>
-    </div>
-
-    <div class="show-infos">
-      <h4 class ="text-medium">Réservations</h4>
-      <% @poilu.bookings.each do |booking| %>
-        <p><%= booking.start_date %> à <%= booking.end_date %> par <%= booking.user.email %></p>
-      <% end %>
     </div>
 
     <p><%= link_to '<i class="fas fa-chevron-left"></i> Retour'.html_safe, poilus_path, class: 'link back' %></p>
