@@ -1,13 +1,14 @@
 class BookingsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_booking, only: [:edit, :update, :destroy]
+
+
   def new
     @poilu = Poilu.find(params[:poilu_id])
     @booking = Booking.new
     @booking.user = current_user
     authorize @booking
   end
-
-  # def create
-  # end
 
   def create
     @booking = Booking.new(booking_params)
@@ -29,10 +30,19 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking = Booking.find(params[:id])
     @booking.update(booking_params)
-    redirect_to poilu_path(@booking.poilu_id)
+    redirect_to user_path(@booking.user)
     authorize @booking
+  end
+
+  def edit
+    @poilu = Poilu.find(params[:poilu_id])
+  end
+
+  def destroy
+    id = @booking.user
+    @booking.destroy
+    redirect_to user_path(id)
   end
 
   private
@@ -40,5 +50,11 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :paid)
   end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+    authorize @booking
+  end
+
 
 end

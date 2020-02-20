@@ -18,7 +18,7 @@
       <% if policy(@poilu).edit? %>
         <p>Ce poilu m'appartient</p>
       <% else %>
-        <p>Ce poilu appartien à <%= @poilu.user.username %></p>
+        <p>Ce poilu appartient à <%= @poilu.user.username %></p>
       <% end %>
       <p>Description : <%= @poilu.description %></p>
       <div><%= link_to "Je le veux", new_poilu_booking_path(@poilu), class: "btn btn-ghost boutton-show" %></div>
