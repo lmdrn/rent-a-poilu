@@ -4,37 +4,51 @@
 
 .card-category {
   height: 400px;
-  transition: height 0.4s, box-shadow 0.4s;
-  border-bottom: 1px, solid, white;
-  color: white;
-  text-transform: uppercase;
-  background-size: cover;
-  background-position: center;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin: 10px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  transition: height 0.4s, box-shadow 0.4s;
+  background-size: cover;
+  background-position: center;
   font-size: 20px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 10px;
   &:hover {
-  height: 402px;
+  height: 405px;
   box-shadow: 20px 20px 40px 0px rgba(0,0,0,0.4);
-  opacity: .7;
+  opacity: .8;
   }
 }
 
+.card-category i {
+  font-size: 18px;
+  margin-right: 8px;
+}
 
 .card-category a {
-    font-family: upgrade-lights,sans-serif;
-    text-decoration: none;
-    color: white;
-    border-top: 1px solid white;
-    padding-right: 30px;
-    margin: 0;
-    &:hover {
-      color: rgb(190,190,190);
-      border-top: 1px solid rgb(190,190,190);
-    }
-  }
+  font-family: 'Quicksand', "sans-serif";
+  color: white;
+  font-weight: lighter;
+  text-decoration: none;
+}
+
+.poilu-location p {
+  color: white;
+}
+
+.poilu-name {
+  color: white;
+  font-weight: lighter;
+  font-size: 30px;
+}
+
+.poilu-name p {
+  font-size: 15px;
+}
+
+.avatar-user {
+  width: 25px;
+  height: 25px;
+}
