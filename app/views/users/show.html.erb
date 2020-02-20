@@ -1,0 +1,34 @@
+
+<h3>Bonjour <%= @user.username %>, bienvenue sur ton profil</h3>
+
+
+<h3>Mes poilus:</h3>
+<% @user.poilus.each do |poilu| %>
+  <p><%= poilu.name %></p>
+  <p><%= poilu.description %></p>
+
+  <% if poilu.photo.attached?  %>
+    <div><%= cl_image_tag(poilu.photo.key) %></div>
+  <% end %>
+
+  <h3>Les réservations de <%= poilu.name %>:</h3>
+
+  <% if poilu.bookings.size > 0 %>
+    <% poilu.bookings.each do |booking| %>
+     <p> Du <%= booking.start_date %> au <%= booking.end_date %> par <%= booking.user.username %></p>
+    <% end %>
+  <% else %>
+     <p> Pas de réservation</p>
+  <% end %>
+
+<% end %>
+
+
+<h3> Mes réservations:</h3>
+<% @user.bookings.each do |booking| %>
+  <p> <%= booking.poilu.name %> du <%= booking.start_date %> au <%= booking.end_date %></p>
+  <% if booking.poilu.photo.attached?  %>
+    <div> <%= cl_image_tag(booking.poilu.photo.key) %></div>
+  <% end %>
+<% end %>
+
