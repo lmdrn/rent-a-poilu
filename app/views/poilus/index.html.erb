@@ -10,7 +10,7 @@
     <% @poilus.each do |poilu| %>
     <div
     class="card-category"
-    style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+    style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
     <%= poilu.photo.attached? == true ? "url('#{cl_image_path(poilu.photo.key, height: 300, width: 400, crop: :fill)}')" : "url(#{image_path("default.jpg")})" %>"
     >
       <%= link_to poilu.name, poilu_path(poilu) %>

@@ -3,6 +3,8 @@
 }
 
 .card-category {
+  height: 400px;
+  transition: height 0.4s, box-shadow 0.4s;
   border-bottom: 1px, solid, white;
   color: white;
   text-transform: uppercase;
@@ -12,11 +14,15 @@
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin: 10px;
-  height: 180px;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
   font-size: 20px;
+  &:hover {
+  height: 402px;
+  box-shadow: 20px 20px 40px 0px rgba(0,0,0,0.4);
+  opacity: .7;
+  }
 }
 
 
