@@ -51,6 +51,6 @@ class PoilusController < ApplicationController
   end
 
   def poilu_params
-    params.require(:poilu).permit(:name, :description, :location, :photo)
+    params.require(:poilu).permit(:name, :description, :location, :photo, :price)
   end
 end

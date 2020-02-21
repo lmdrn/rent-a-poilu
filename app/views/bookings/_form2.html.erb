@@ -3,6 +3,7 @@
     <h4>Confirmez votre réservation</h4>
     <p>Poilu choisi: <%= @poilu.name %></p>
     <p>Loué du: <%= @booking.start_date %> au <%= @booking.end_date %></p>
+    <p>Prix: <%= @poilu.price %> CHF/jour</p>
     <%= f.hidden_field :paid, value: true %>
 
     <% if @poilu.photo.attached? %>
