@@ -9,4 +9,5 @@ class Poilu < ApplicationRecord
   validates :description, presence: true
   validates :location, presence: true
   validates :photo, presence: true
+  validates :price, presence: true
 end
