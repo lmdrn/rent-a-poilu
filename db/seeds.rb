@@ -12,8 +12,18 @@ Poilu.destroy_all
 
 LOCATIONS = ['Lausanne','Renens','Genève','Bern','Zürich','Neuchâtel','Fribourg']
 puts "Creating users"
-paul = User.create!(username: 'Paul', email: 'paul@lepoulpe.ch', :password => 'topsecret', :password_confirmation => 'topsecret')
-sarah = User.create!(username: 'Sarah', email: 'sarah@croche.ch', :password => 'topsecret', :password_confirmation => 'topsecret')
+
+
+filep = URI.open('https://cdn.pixabay.com/photo/2016/11/21/12/42/beard-1845166_960_720.jpg')
+paul = User.new(username: 'Paul', email: 'paul@lepoulpe.ch', :password => 'topsecret', :password_confirmation => 'topsecret')
+paul.photo.attach(io: filep, filename: 'paul.jpg', content_type:'image/jpg')
+paul.save
+
+
+files = URI.open('https://cdn.pixabay.com/photo/2017/11/19/07/30/girl-2961959_960_720.jpg')
+sarah = User.new(username: 'Sarah', email: 'sarah@croche.ch', :password => 'topsecret', :password_confirmation => 'topsecret')
+sarah.photo.attach(io: files, filename: 'sarah.jpg', content_type:'image/jpg')
+sarah.save
 
 puts "Creating poilus"
 
