@@ -8,7 +8,6 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-@import "bootstrap-sprockets";
 // @import "bootstrap";
 
 // Your CSS partials
@@ -17,4 +16,5 @@
 @import "poilus/index";
 @import "users/index";
 
+@import 'datetime_picker_input';
 

@@ -1,8 +1,5 @@
 //= require rails-ujs
-//= require_tree .
-
-//= require datetime_picker_input
-
+//= require_tree
 //= require jquery
-//= require bootstrap-sprockets
+//= require datetime_picker_input
 

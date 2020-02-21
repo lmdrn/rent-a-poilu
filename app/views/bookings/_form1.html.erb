@@ -1,16 +1,27 @@
 <div class="form-container">
+  <h1>Dates de location du poilu</h1>
  <%= simple_form_for [@poilu, @booking] do |f| %>
-    <h2>Choisissez les dates de location</h2>
-    <% if @booking.errors.any? %>
-        <div class="errors-container">
-          <ul>
-            <% @booking.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-    <%= f.input :end_date, as: :date_time_picker, :label => "tes2"%>
-    <%= f.submit "Suivant", class: "btn btn-ghost" %>
+  <%= f.input :start_date, as: :date_time_picker, placeholder: '2020-02-21', input_html:
+    { data:
+      {
+        date_format: "YYYY-MM-DD",
+        date_day_view_header_format: 'MMM YYYY',
+        date_side_by_side: true,
+        date_min_date: Time.current.strftime('%Y-%m-%d')
+      }
+    }%>
+
+    <%= f.input :end_date, as: :date_time_picker, placeholder: '2020-02-27', input_html:
+    { data:
+      {
+        date_side_by_side: true,
+        date_day_view_header_format: 'MMM YYYY',
+        date_format: 'YYYY-MM-DD',
+        date_min_date: Time.current.strftime('%Y-%m-%d')
+      }
+    }
+    %>
+
+    <%= f.button :submit %>
   <% end %>
 </div>
