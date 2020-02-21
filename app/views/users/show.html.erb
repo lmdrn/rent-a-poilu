@@ -1,65 +1,70 @@
-<h1 class="header-profile">Bonjour <%= @user.username %>, bienvenue sur ton profil</h1>
+<div class="header-profile">
+  <h1 >Bonjour <%= @user.username %></h1>
+  <p>bienvenue sur ton profil</p>
+</div>
+
 <div class="container">
   <div class="row">
     <div class="col-12">
       <div class="main-box">
+
         <div class="poilu-boxes">
+
+<!-- ----------MES POILUS----------- -->
           <div class="my-poilus poil-container">
             <h3>Mes poilus</h3>
+
             <% @user.poilus.each do |poilu| %>
               <div class="poilu-category">
-                <div class="mini-banner">
-                  <% if poilu.photo.attached?  %>
-                    <div class="poilu-image"><%= cl_image_tag(poilu.photo.key,  height: 90, width: 90, crop: :fill) %></div>
-                  <% end %>
-                  <div class="poilus-infos">
-                    <h4><%= poilu.name %></h4>
-                    <p class="added-at"> (ajouté le : <%= poilu.created_at.strftime("%A %d %B, %Y") %>)</p>
-                  </div>
+
+                <div class="poilus-infos">
+                  <h4><%= poilu.name %></h4>
+                  <p class="added-at"> (ajouté le : <%= poilu.created_at.strftime("%A %d %B, %Y") %>)</p>
                 </div>
-                <% if poilu.bookings.size > 0 %>
-                  <p class="reserved">Ce poilu est réservé!</p>
-                  <% poilu.bookings.each do |booking| %>
-                    <p class="small-resa"><i class="fas fa-arrow-right"></i>du <%= booking.start_date.strftime("%A %d %B, %Y") %> au <%= booking.end_date.strftime("%A %d %B, %Y") %> par <%= booking.user.username %></p>
+
+                <div class="infos purpleBorder">
+                  <% if poilu.bookings.size > 0 %>
+                    <p class="reserved">Ce poilu est réservé!</p>
+                    <% poilu.bookings.each do |booking| %>
+                      <p class="small-resa"><i class="fas fa-arrow-right"></i>du <%= booking.start_date.strftime("%A %d %B, %Y") %> au <%= booking.end_date.strftime("%A %d %B, %Y") %> par <%= booking.user.username %></p>
+                    <% end %>
+                  <% else %>
+                    <p class="font-size center-align">Pas de réservations</p>
                   <% end %>
-                <% else %>
-                  <p>Pas de réservations</p>
-                <% end %>
+                </div>
               </div>
-          </div>
             <% end %>
+          </div>
 
-              <div class="my-bookings poil-container">
+<!-- ----------MES BOOKINGS----------- -->
 
-                <h3> Mes réservations</h3>
-                <% if @bookings.size > 0 %>
-                  <% @bookings.each do |booking| %>
-                <div class="booking-category poilu-category">
-                  <% if booking.poilu.photo.attached?  %>
-                    <div class="poilu-image"> <%= cl_image_tag(booking.poilu.photo.key, height: 150, width: 200, crop: :fill) %></div>
+          <div class="my-bookings poil-container">
+
+            <h3> Mes réservations</h3>
+            <% if @bookings.size > 0 %>
+              <% @bookings.each do |booking| %>
+            <div class="booking-category poilu-category">
+              <h4><%= booking.poilu.name %></h4>
+              <p><strong>réservé</strong> du <%= booking.start_date.strftime("%A %d %B, %Y") %> au <%= booking.end_date.strftime("%A %d %B, %Y") %></p>
+                <div class="button-booking">
+                  <% if policy(booking).edit? %>
+                    <p><%= link_to '<i class="fas fa-edit"></i> Éditer'.html_safe, edit_poilu_booking_path(booking.poilu, booking), class: 'link'  %></p>
                   <% end %>
-                  <h4><%= booking.poilu.name %></h4>
-                  <p><strong>réservé</strong> du <%= booking.start_date.strftime("%A %d %B, %Y") %> au <%= booking.end_date.strftime("%A %d %B, %Y") %></p>
-                    <div class="button-booking">
-                      <% if policy(booking).edit? %>
-                        <p><%= link_to '<i class="fas fa-edit"></i> Éditer'.html_safe, edit_poilu_booking_path(booking.poilu, booking), class: 'link'  %></p>
-                      <% end %>
-                      <% if policy(booking).destroy? %>
-                        <p><%= link_to '<i class="fas fa-trash-alt"></i> Supprimer'.html_safe, poilu_booking_path(booking.poilu, booking), method: :delete, data: { confirm: "Are you sure?" }, class: 'link'  %> </p>
-                      <% end %>
-                    </div>
+                  <% if policy(booking).destroy? %>
+                    <p><%= link_to '<i class="fas fa-trash-alt"></i> Supprimer'.html_safe, poilu_booking_path(booking.poilu, booking), method: :delete, data: { confirm: "Are you sure?" }, class: 'link'  %> </p>
+                  <% end %>
                 </div>
-                  <% end %>
-                <% else %>
-                  <p>Pas de réservations</p>
-                <% end %>
-              </div>
-        </div>
+            </div>
+              <% end %>
+            <% else %>
+              <p>Pas de réservations</p>
+            <% end %>
+          </div>
 
-        <div class="return return-margin">
-          <p><%= link_to '<i class="fas fa-chevron-left"></i> Retour'.html_safe, poilus_path, class: 'link back' %></p>
+
+
         </div>
       </div>
     </div>
-
-
+  </div>
+</div>
