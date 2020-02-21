@@ -5,15 +5,91 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "open-uri"
+require "faker"
 Poilu.destroy_all
 
-Poilu.create!(name: 'Pêche poilue', description: 'Un petit fruit tout doux pour adoucir vos papilles', location: 'Lausanne', user_id: 1)
-Poilu.create!(name: 'Chewbacca', description: 'Vous apportera fidelité en amitié. Capacité conversationnelle diffcile.', location: 'Renens', user_id: 1)
-Poilu.create!(name: 'Minou', description: 'Boule de poil arrogante mais attachante', location: 'Lausanne', user_id: 1)
-Poilu.create!(name: 'Fizzgig', description: 'Totalement rond. Grande gueule', location: 'Fribourg', user_id: 1)
-Poilu.create!(name: 'Balai', description: 'Petits cheveux pratiques pour nettoyer', location: 'Neuchâtel', user_id: 1)
-Poilu.create!(name: 'Moquette', description: "Nid à bactéries mais on s'en fout ça rend bien dans le salon", location: 'Bern', user_id: 1)
-Poilu.create!(name: 'Perruque', description: 'Pour impressionner tes beaux-parents à Noël', location: 'Zürich', user_id: 1)
-Poilu.create!(name: 'Leggings à poils', description: 'Pour rentrer tranquille chez soi le soir', location: 'Genève', user_id: 1)
-Poilu.create!(name: 'Torse fourni', description: 'Pour rendre les câlins plus confortables', location: 'Berne', user_id: 1)
-Poilu.create!(name: 'Yéti', description: 'Monstre des montagnes blanc. Caractère très sympathique. Préfère les températures fraîches', location: 'Bern', user_id: 1)
+
+LOCATIONS = ['Lausanne','Renens','Genève','Bern','Zürich','Neuchâtel','Fribourg']
+puts "Creating users"
+paul = User.create!(username: 'Paul', email: 'paul@lepoulpe.ch', :password => 'topsecret', :password_confirmation => 'topsecret')
+sarah = User.create!(username: 'Sarah', email: 'sarah@croche.ch', :password => 'topsecret', :password_confirmation => 'topsecret')
+
+puts "Creating poilus"
+
+file1 = URI.open('https://www.plisson1808.com/img/cms/touffe_HauteMontagne.jpg')
+poilu1 = Poilu.new(name: Faker::Artist.name, description: Faker::Movies::Hobbit.quote, user_id: paul.id, price: '15', location: LOCATIONS.sample)
+poilu1.photo.attach(io: file1, filename: 'poilu1.jpg', content_type:'image/jpg')
+poilu1.save
+
+file2 = URI.open('https://www.norki-decoration.com/wp-content/uploads/2017/02/coussin-mouton-gris-souris-poils-longs.jpg')
+poilu2 = Poilu.new(name: Faker::Artist.name, description: Faker::Movies::Hobbit.quote, user_id: paul.id, price: '15', location: LOCATIONS.sample)
+poilu2.photo.attach(io: file2, filename: 'poilu2.jpg', content_type:'image/jpg')
+poilu2.save
+
+file3 = URI.open('https://www.peaudevache.com/908-thickbox_default/tabouret-en-mouton-gris-dona-poils-courts-avec-pieds-en-vritable-bois-de-bouleau.jpg')
+poilu3 = Poilu.new(name: Faker::Artist.name, description: Faker::Movies::Hobbit.quote, user_id: sarah.id, price: '15', location: LOCATIONS.sample)
+poilu3.photo.attach(io: file3, filename: 'poilu3.jpg', content_type:'image/jpg')
+poilu3.save
+
+file4 = URI.open('https://www.lapiscine-paris.fr/28581/top-noir-a-poils-effet-metalique-space.jpg')
+poilu4 = Poilu.new(name: Faker::Artist.name, description: Faker::Movies::Hobbit.quote, user_id: paul.id, price: '15', location: LOCATIONS.sample)
+poilu4.photo.attach(io: file4, filename: 'poilu4.jpg', content_type:'image/jpg')
+poilu4.save
+
+file5 = URI.open('https://cdn-s-www.estrepublicain.fr/images/663E4874-F342-4350-8844-05F5FF54FAA5/NW_raw/gros-plan-sur-les-chenilles-du-chene-avec-leurs-poils-urticants-photo-rl-frederic-lecocq-1563123783.jpg')
+poilu5 = Poilu.new(name: Faker::Artist.name, description: Faker::Movies::Hobbit.quote, user_id: sarah.id, price: '25', location: LOCATIONS.sample)
+poilu5.photo.attach(io: file5, filename: 'poilu5.jpg', content_type:'image/jpg')
+poilu5.save
+
+file6 = URI.open('https://soirmag.lesoir.be/sites/default/files/dpistyles_v2/ena_16_9_extra_big/2017/10/10/node_118519/8785846/public/2017/10/10/B9713449655Z.1_20171010103909_000+GIV9UNP1C.1-0.png.jpg?itok=4ih6hShq1507625379')
+poilu6 = Poilu.new(name: Faker::Artist.name, description: Faker::Movies::Hobbit.quote, user_id: paul.id, price: '18', location: LOCATIONS.sample)
+poilu6.photo.attach(io: file6, filename: 'poilu6.jpg', content_type:'image/jpg')
+poilu6.save
+
+file7 = URI.open('https://cdn.generationvoyage.fr/2014/11/animaux-poils-insolites-4.jpg')
+poilu7 = Poilu.new(name: Faker::Artist.name, description: Faker::Movies::Hobbit.quote, user_id: sarah.id, price: '1000', location: LOCATIONS.sample)
+poilu7.photo.attach(io: file7, filename: 'poilu7.jpg', content_type:'image/jpg')
+poilu7.save
+
+file8 = URI.open('https://cdn.generationvoyage.fr/2014/11/animaux-poils-insolites-15.jpg')
+poilu8 = Poilu.new(name: Faker::Artist.name, description: Faker::Movies::Hobbit.quote, user_id: paul.id, price: '350', location: LOCATIONS.sample)
+poilu8.photo.attach(io: file8, filename: 'poilu8.jpg', content_type:'image/jpg')
+poilu8.save
+
+file9 = URI.open('https://medias.liberation.fr/photo/528570-collant-poilu.jpg?modified_at=1371565180&width=975')
+poilu9 = Poilu.new(name: Faker::Artist.name, description: Faker::Movies::Hobbit.quote, user_id: sarah.id, price: '5', location: LOCATIONS.sample)
+poilu9.photo.attach(io: file9, filename: 'poilu9.jpg', content_type:'image/jpg')
+poilu9.save
+
+file10 = URI.open('https://www.monsieur-paillettes.com/10343-large_default/fausse-moustache-et-rouflaquettes-de-hippie.jpg')
+poilu10 = Poilu.new(name: Faker::Artist.name, description: Faker::Movies::Hobbit.quote, user_id: sarah.id, price: '45', location: LOCATIONS.sample)
+poilu10.photo.attach(io: file10, filename: 'poilu.10jpg', content_type:'image/jpg')
+poilu10.save
+
+file11 = URI.open('https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2Ff05e7920-e43e-11e8-9ca5-2dc8c6b25903.jpg?crop=2116%2C2646%2C138%2C12')
+poilu11 = Poilu.new(name: Faker::Artist.name, description: Faker::Movies::Hobbit.quote, user_id: sarah.id, price: '550', location: LOCATIONS.sample)
+poilu11.photo.attach(io: file11, filename: 'poilu11.jpg', content_type:'image/jpg')
+poilu11.save
+
+file12 = URI.open('https://www.celibattantes.fr/wp-content/uploads/2015/05/Homme-Caverne-Engagement.jpg')
+poilu12 = Poilu.new(name: Faker::Artist.name, description: Faker::Movies::Hobbit.quote, user_id: paul.id, price: '25', location: LOCATIONS.sample)
+poilu12.photo.attach(io: file12, filename: 'poilu12.jpg', content_type:'image/jpg')
+poilu12.save
+
+file13 = URI.open('https://jardinierparesseux.files.wordpress.com/2019/12/20191220a-manzel-pumpkin-pinterest.ca_.jpg?w=800')
+poilu13 = Poilu.new(name: Faker::Artist.name, description: Faker::Movies::Hobbit.quote, user_id: paul.id, price: '10', location: LOCATIONS.sample)
+poilu13.photo.attach(io: file13, filename: 'poilu13.jpg', content_type:'image/jpg')
+poilu13.save
+
+file14 = URI.open('https://exclusifparis.com/14684-thickbox_default/cocon.jpg')
+poilu14 = Poilu.new(name: Faker::Artist.name, description: Faker::Movies::Hobbit.quote, user_id: paul.id, price: '80', location: LOCATIONS.sample)
+poilu14.photo.attach(io: file14, filename: 'poilu14.jpg', content_type:'image/jpg')
+poilu14.save
+
+file15 = URI.open('https://images.cdn.snowleader.com/media/catalog/product/cache/1/image/0dc2d03fe217f8c83829496872af24a0/b/o/boxer_poilstrusse_-configurable-pictureorg-pict01578.jpg')
+poilu15 = Poilu.new(name: Faker::Artist.name, description: Faker::Movies::Hobbit.quote, user_id: paul.id, price: '5', location: LOCATIONS.sample)
+poilu15.photo.attach(io: file15, filename: 'poilu15.jpg', content_type:'image/jpg')
+poilu15.save
+
+puts "finished!"
