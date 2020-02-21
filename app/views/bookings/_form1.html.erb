@@ -1,12 +1,12 @@
 <div class="form-container">
   <h1>Dates de location du poilu</h1>
  <%= simple_form_for [@poilu, @booking] do |f| %>
-  <%= f.input :start_date, as: :string, placeholder: '21/02/2020',input_html:{ class: 'datepicker', autocomplete: "off"} %>
-  <%= f.input :end_date, as: :string, placeholder: '21/02/2020',input_html:{ class: 'datepicker', autocomplete: "off"} %>
+  <%= f.input :start_date, as: :string, placeholder: '21/02/2020', label: 'Début de la location', input_html:{ class: 'datepicker', autocomplete: "off"} %>
+  <%= f.input :end_date, as: :string, placeholder: '21/02/2020', label: 'Fin de la location', input_html:{ class: 'datepicker', autocomplete: "off"} %>
 
 
     <div class="buttoncalendar">
-      <%= f.button :submit %>
+      <%= f.button :submit, 'louer ce poilu' %>
     </div>
   <% end %>
 </div>
