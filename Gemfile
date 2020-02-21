@@ -18,6 +18,7 @@ gem 'webpacker'
 gem 'devise'
 gem 'bootstrap-datepicker-rails'
 gem 'pundit'
+gem 'faker'
 
 
 gem 'dotenv-rails', groups: [:development, :test]
