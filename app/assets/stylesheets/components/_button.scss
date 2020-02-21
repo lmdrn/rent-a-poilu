@@ -1,4 +1,4 @@
-.btn {
+.bouton {
   flex: 1 1 auto;
   margin-right: 20px;
   padding: 10px;
@@ -10,14 +10,19 @@
   border-radius: 10px;
  }
 
+ a {
+  text-decoration: none;
+ }
+
 /* <- Magic Stuff Start */
 
-.btn:hover {
+.bouton:hover {
   background-position: right center; /* change the direction of the change here */
   color: white;
+  text-decoration: none;
 }
 
-.btn-2 {
+.bouton-2 {
   background-image: linear-gradient(to right, #fbc2eb 0%, #7550fc 51%, #fbc2eb 100%);
 }
 /* Magic Stuff End -> */
