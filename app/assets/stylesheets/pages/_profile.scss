@@ -1,10 +1,15 @@
 .header-profile {
   width: 100%;
+  font-size: 1em;
   padding: 30px;
   text-align: center;
   background-color: rgb(220,220,220);
   color: white;
   font-family: 'Quicksand', "sans-serif";
+}
+
+.header-profile h1 {
+  font-size: 2em;
 }
 
 .main-box {
@@ -13,6 +18,7 @@
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   height: 100%;
+  padding: 20px;
 }
 
 .my-poilus {
@@ -21,7 +27,17 @@
   border-radius: 15px;
 }
 
+.poil-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin: 5px;
+}
+
 .poilu-category {
+  padding: 5px;
   margin: 15px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   font-size: 20px;
@@ -34,13 +50,14 @@
     text-transform: capitalize;
     font-family: 'Quicksand', "sans-serif";
     margin-left: 10px;
+    font-size: 1em;
+    color: #7001FF;
   }
 }
 
 .added-at {
-  font-size: 15px;
+  font-size: 0.6em;
   margin-bottom: 10px;
-  text-align: center;
   color: rgb(150,150,150);
   margin-left: 10px;
 }
@@ -58,7 +75,6 @@
 
 .poilu-boxes {
   display: flex;
-  margin: 30px;
   h3 {
     text-align: center;
     font-family: 'Quicksand', "sans-serif";
@@ -70,11 +86,6 @@
   flex-direction: column;
 }
 
-.poil-container {
-  margin: 0 auto;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin: 30px;
-}
 
 .booked p {
   color: white;
@@ -88,7 +99,7 @@
 
 .booking-category {
   text-align: left;
-  padding: 10px;
+  padding: 5px;
 }
 
 .booking-category > h4 {
@@ -96,7 +107,7 @@
 }
 
 .booking-category > p {
-  font-size: 18px;
+  font-size: 0.7em;
   margin-bottom: 10px;
 }
 
@@ -109,9 +120,14 @@
 .reserved {
   color: white;
   background-color: #7001FF;
-  padding: 20px;
+  padding: 5px;
   margin: 10 0px;
   text-align: center;
+  font-size: 0.8em;
+}
+
+.font-size {
+  font-size: 0.7em;
 }
 
 .button-booking {
@@ -122,10 +138,18 @@
   padding: 10px 20px;
 }
 
+.purpleBorder {
+  border: 1px solid #7001FF;
+}
+
+.center-align {
+  text-align: center;
+}
+
 .button-booking a {
   color: white;
   margin-right: 10px;
-  font-size: 18px;
+  font-size: 0.6em;
   &:hover {
   text-decoration: none;
   color: pink;
@@ -133,7 +157,7 @@
 }
 
 .small-resa {
-  font-size: 18px;
+  font-size: 0.6em;
   margin: 20px;
   text-align: justify;
 }
