@@ -2,7 +2,13 @@ class PoilusController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_poilu, only: [:show, :edit, :update, :destroy]
   def index
-    @poilus = policy_scope(Poilu).order(created_at: :desc)
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR description ILIKE :query"
+      @poilus = policy_scope(Poilu).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @poilus = policy_scope(Poilu).order(created_at: :desc)
+    end
+
   end
 
   def new
