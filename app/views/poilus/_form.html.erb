@@ -13,6 +13,7 @@
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     <%= f.input :name, label: "Nom du poilu"%>
     <%= f.input :description, label: "Description du poilu" %>
+    <%= f.input :price, label: "Prix par jour" %>
     <%= f.input :location, collection: Poilu::LOCATIONS, label: "Emplacement du poilu" %>
     <%= f.input :photo, as: :file,label: "Photo du poilu" %>
     <%= f.submit "Ajouter le poilu", class: "btn btn-ghost" %>
