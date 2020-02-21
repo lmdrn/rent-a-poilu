@@ -16,7 +16,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
-gem 'datetime_picker_input'
+gem 'bootstrap-datepicker-rails'
 gem 'pundit'
 
 
